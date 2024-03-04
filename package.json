@@ -1,25 +1,34 @@
 {
-  "name": "blockchain",
+  "name": "TalkWithYourDatabase",
   "version": "1.0.0",
-  "description": "This is project about simple blockchain that coding in NodeJS and Typescript",
+  "description": "This is project about chatbot have ability access to your database and return result. Project was coded in NodeJS and Typescript using Langchain",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
-    "start": "npx tsc && node dist/server.js",
-    "dev": "nodemon src/server.ts"
+    "build": "tsc --declaration --outDir dist/",
+    "start": "npm build && node -r dotenv/config dist/server.js",
+    "dev": "tsx -r dotenv/config src/server.ts"
   },
   "keywords": [],
   "author": "FSN",
   "license": "ISC",
   "dependencies": {
+    "@langchain/community": "^0.0.34",
+    "@langchain/openai": "^0.0.15",
+    "@tsconfig/recommended": "^1.0.3",
+    "@types/node": "^20.11.24",
     "cors": "^2.8.5",
     "crypto-js": "^4.2.0",
     "dotenv": "^16.4.5",
     "express": "^4.18.2",
     "joi": "^17.12.2",
-    "mongodb": "^6.3.0",
-    "mongoose": "^8.2.0",
-    "nodemon": "^3.1.0"
+    "langchain": "^0.1.25",
+    "mysql2": "^3.9.2",
+    "nodemon": "^3.1.0",
+    "openai": "^4.28.4",
+    "rimraf": "^5.0.5",
+    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.7.1",
+    "typeorm": "^0.3.20"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
