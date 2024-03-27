@@ -1,22 +1,17 @@
 {
-  "extends": "@tsconfig/recommended",
   "compilerOptions": {
-    "target": "ES2020",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "declaration": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "dist",
-    // "noEmit": true,
-    "esModuleInterop": true,
-    "module": "NodeNext",
-    "isolatedModules": true,
-    "sourceMap": true,
-    // "baseUrl": "./src"
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "target": "es6",
+      "noImplicitAny": true,
+      "moduleResolution": "node",
+      "sourceMap": true,
+      "outDir": "dist",
+      "baseUrl": ".",
+      "paths": {
+          "*": ["node_modules/*", "src/types/*"]
+      }
   },
-  "include": ["./src"],
-  "exclude": ["node_modules", "dist/"]
-}
+  "include": ["./src/**/*"]
+  }
