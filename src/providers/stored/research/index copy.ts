@@ -1,11 +1,11 @@
-import { env } from "config/environment";
+import { env } from "../../../config/environment";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import OpenAI from "openai";
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
 import { MemoryVectorStore } from 'langchain/vectorstores/memory';
 import { BraveSearch } from "@langchain/community/tools/brave_search";
 import cheerio from 'cheerio';
-import { ConfigOptions } from "common/interfaces/ConfigOptions.interface";
+import { ConfigOptions } from "../../../common/interfaces/ConfigOptions.interface";
 
 // đầu tiên khai báo openai
 let openai = new OpenAI({
@@ -59,7 +59,7 @@ export const getAnswerResearchAssistant1 = async (datas: ConfigOptions) => {
     const rephrasedMessage = await rephraseInput(message);
     console.log(`6. Rephrased message and got documents from BraveSearch: `, rephrasedMessage);
     // 13. Lấy documents từ BraveSearch 
-    const docs = await loader.call(rephrasedMessage, { count: numberOfPagesToScan });
+    const docs = await loader.call(rephrasedMessage);
     // 14. Normalize data => này sẽ chuyển dạng data: { title: string, link: string}
     const normalizedData = normalizeData(docs);
     console.log("🚀 ~ searchEngineForSources ~ normalizedData:", normalizedData)

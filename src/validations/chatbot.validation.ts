@@ -1,7 +1,7 @@
 import Joi from 'joi'
 import { HttpStatusCode } from '../utilities/constants'
 import { NextFunction, Request, Response } from 'express'
-import { ConfigOptions } from 'common/interfaces/ConfigOptions.interface'
+import { ConfigOptions } from '../common/interfaces/ConfigOptions.interface'
 
 const getAnswer = async (req: Request, res: Response, next: NextFunction) => {
   console.log("🚀 ~ getAnswer ~ req:", req.body)

@@ -9,7 +9,7 @@ import { WikipediaQueryRun } from "@langchain/community/tools/wikipedia_query_ru
 export const getAnswerSearchAssistant = async (sessionId: string, question: string, user_name: string) => {
   // Prompt Template
   const prompt = ChatPromptTemplate.fromMessages([
-    ("system", promptRole),
+    ["system", promptRole],
     new MessagesPlaceholder("chat_history"),
     HumanMessagePromptTemplate.fromTemplate("Please answer the following question in VIETNAMESE: {question}"),
     HumanMessagePromptTemplate.fromTemplate(`

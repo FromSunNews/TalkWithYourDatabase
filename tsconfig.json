@@ -15,7 +15,7 @@
     "module": "NodeNext",
     "isolatedModules": true,
     "sourceMap": true,
-    "baseUrl": "./src"
+    // "baseUrl": "./src"
   },
   "include": ["./src"],
   "exclude": ["node_modules", "dist/"]

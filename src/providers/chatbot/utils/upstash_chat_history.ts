@@ -1,4 +1,4 @@
-import { env } from "config/environment";
+import { env } from "../../../config/environment";
 import { UpstashRedisChatMessageHistory } from "langchain/stores/message/upstash_redis";
 import { getConvertChatHistory } from "./convert_chat_history";
 import { AIMessage, HumanMessage } from "langchain/schema";

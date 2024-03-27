@@ -1,5 +1,5 @@
 import { ChatOpenAI, OpenAIEmbeddings } from "@langchain/openai";
-import { env } from "config/environment";
+import { env } from "../../../config/environment";
 import { ChatPromptTemplate, MessagesPlaceholder } from "langchain/prompts";
 import { AIMessage, BaseMessage, HumanMessage } from "langchain/schema";
 import { StringOutputParser } from "langchain/schema/output_parser";

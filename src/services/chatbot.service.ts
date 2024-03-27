@@ -1,5 +1,4 @@
-/* eslint-disable no-unreachable */
-import { getAnswerChatBot } from "providers/chatbot";
+import { getAnswerChatBot } from "../providers/chatbot";
 
 const getAnswer = async (data: { sessionId: string, question: string, user_name: string }): Promise<string> => {
   try {

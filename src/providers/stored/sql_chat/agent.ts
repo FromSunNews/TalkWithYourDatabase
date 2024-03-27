@@ -11,14 +11,14 @@ import { SqlDatabase } from "langchain/sql_db";
 import { DataSource } from "typeorm";
 import readline from "readline";
 import { UpstashRedisChatMessageHistory } from "langchain/stores/message/upstash_redis";
-import { env } from "config/environment";
+import { env } from "../../../config/environment";
 import { TavilySearchResults } from "@langchain/community/tools/tavily_search";
 import { WikipediaQueryRun } from "@langchain/community/tools/wikipedia_query_run";
 
 export const getDataFromAgent = async () => {
   const datasource = new DataSource({
     type: "mysql",
-    host: 3306,
+    host: "3306",
     username: "root",
     password: "",
     database: "softseek"

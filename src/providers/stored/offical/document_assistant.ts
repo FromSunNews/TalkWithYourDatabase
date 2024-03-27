@@ -3,7 +3,6 @@ import { StringOutputParser } from 'langchain/schema/output_parser';
 import { RunnablePassthrough, RunnableSequence, RunnableBranch } from "@langchain/core/runnables"
 import readline from "readline";
 import { UpstashRedisChatMessageHistory } from 'langchain/stores/message/upstash_redis';
-import { env } from 'config/environment';
 import { AIMessage, HumanMessage } from 'langchain/schema';
 import { getRetrieverSupabase } from '../../chatbot/utils/retriever';
 import { combineDocuments } from '../../chatbot/utils/combine_documents';

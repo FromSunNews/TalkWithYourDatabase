@@ -14,7 +14,7 @@ export const getDB = async () => {
 
   const datasource = new DataSource({
     type: "mysql",
-    host: 3306,
+    host: "3306",
     username: "root",
     password: "",
     database: "softseek"

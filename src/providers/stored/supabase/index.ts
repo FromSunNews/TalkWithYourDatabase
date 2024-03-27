@@ -12,7 +12,6 @@ import { RunnablePassthrough, RunnableSequence, RunnableBranch } from "@langchai
 import { formatConvHistory } from './format-conv-history';
 import readline from "readline";
 import { UpstashRedisChatMessageHistory } from 'langchain/stores/message/upstash_redis';
-import { env } from 'config/environment';
 import { AIMessage, HumanMessage } from 'langchain/schema';
 import { DynamicTool } from "@langchain/core/tools";
 import { ChatPromptTemplate, MessagesPlaceholder } from 'langchain/prompts';
@@ -20,6 +19,7 @@ import { TavilySearchResults } from '@langchain/community/tools/tavily_search';
 import { WikipediaQueryRun } from '@langchain/community/tools/wikipedia_query_run';
 import { AgentExecutor, createOpenAIFunctionsAgent } from 'langchain/agents';
 import { convertToOpenAIFunction } from "@langchain/core/utils/function_calling";
+import { env } from '../../../config/environment';
 
 
 export const getTextSplitter = async () => {
@@ -230,9 +230,9 @@ export const runnableSequenceExample = async () => {
       });
 
       const prompt = ChatPromptTemplate.fromMessages([
-        ("system", "You are a helpful assistant."),
+        ["system", "You are a helpful assistant."],
         new MessagesPlaceholder("chat_history"),
-        ("human", "{input}"),
+        ["human", "{input}"],
         new MessagesPlaceholder("agent_scratchpad"),
       ]);
 

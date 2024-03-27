@@ -4,7 +4,7 @@ import { StringOutputParser } from "langchain/schema/output_parser";
 import { PromptTemplate } from "langchain/prompts";
 import { getChatHistoryConvertString } from "./utils/upstash_chat_history";
 import OpenAI from "openai";
-import { env } from "config/environment";
+import { env } from "../../config/environment";
 
 
 // export const getStandaloneQuestion = async (sessionId: string, question: string) => {

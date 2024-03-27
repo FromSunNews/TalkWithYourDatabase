@@ -1,9 +1,9 @@
 import { ChatOpenAI } from "@langchain/openai";
-import { env } from "config/environment";
 import { ConversationChain } from "langchain/chains";
 import { BufferMemory } from "langchain/memory";
 import { ChatPromptTemplate } from "langchain/prompts";
 import { UpstashRedisChatMessageHistory } from "langchain/stores/message/upstash_redis";
+import { env } from "../../config/environment";
 
 
 export const handleMemory = async () => {

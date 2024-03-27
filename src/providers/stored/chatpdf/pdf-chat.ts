@@ -1,6 +1,6 @@
 import { TavilySearchResults } from "@langchain/community/tools/tavily_search";
 import { ChatOpenAI, OpenAIEmbeddings } from "@langchain/openai";
-import { env } from "config/environment";
+import { env } from "../../../config/environment";
 import { AgentExecutor, createOpenAIFunctionsAgent } from "langchain/agents";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 import { createHistoryAwareRetriever } from "langchain/chains/history_aware_retriever";

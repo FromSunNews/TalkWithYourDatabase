@@ -1,8 +1,8 @@
-import { MessengerProvider } from 'providers/messenger'
+import { env } from '../config/environment';
+import { MessengerProvider } from '../providers/messenger';
 import { ChatbotService } from '../services/chatbot.service'
 import { HttpStatusCode } from '../utilities/constants'
 import { Request, Response } from 'express'
-import { env } from 'config/environment'
 
 const getAnswerPOST = async (req: Request, res: Response) => {
   try {

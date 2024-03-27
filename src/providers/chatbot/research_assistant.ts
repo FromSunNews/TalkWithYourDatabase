@@ -1,12 +1,11 @@
-import { env } from "config/environment";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import OpenAI from "openai";
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
 import { MemoryVectorStore } from 'langchain/vectorstores/memory';
 import { BraveSearch } from "@langchain/community/tools/brave_search";
 import cheerio from 'cheerio';
-import { ConfigOptions } from "common/interfaces/ConfigOptions.interface";
 import { Document as DocumentInterface } from "langchain/document";
+import { ConfigOptions } from "../../common/interfaces/ConfigOptions.interface";
 
 // 3. Define interfaces for search results and content results
 interface SearchResult {

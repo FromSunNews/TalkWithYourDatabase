@@ -6,20 +6,15 @@ import {
 import { ChatOpenAI } from "@langchain/openai";
 import { createOpenAIToolsAgent, AgentExecutor } from "langchain/agents";
 import { SqlToolkit } from "langchain/agents/toolkits/sql";
-import { AIMessage, HumanMessage } from "langchain/schema";
+import { AIMessage } from "langchain/schema";
 import { SqlDatabase } from "langchain/sql_db";
 import { DataSource } from "typeorm";
-import readline from "readline";
-import { UpstashRedisChatMessageHistory } from "langchain/stores/message/upstash_redis";
-import { env } from "config/environment";
-import { TavilySearchResults } from "@langchain/community/tools/tavily_search";
-import { WikipediaQueryRun } from "@langchain/community/tools/wikipedia_query_run";
 import { getChatHistoryBasic } from "./utils/upstash_chat_history";
 
 export const getAnswerDatabaseAssistant = async (sessionId: string, question: string, user_name: string) => {
   const datasource = new DataSource({
     type: "mysql",
-    host: 3306,
+    host: "3306",
     username: "root",
     password: "",
     database: "job_it"

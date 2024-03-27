@@ -19,10 +19,10 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { CheerioWebBaseLoader } from "langchain/document_loaders/web/cheerio";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { OpenAIEmbeddings } from "@langchain/openai";
-import { env } from "config/environment";
 import { UpstashRedisChatMessageHistory } from "langchain/stores/message/upstash_redis";
 import { BufferMemory } from "langchain/memory";
 import { ConversationChain } from "langchain/chains";
+import { env } from "../../config/environment";
 
 
 export const handleAgent = async () => {
@@ -58,9 +58,9 @@ export const handleAgent = async () => {
 
   // Prompt Template
   const prompt = ChatPromptTemplate.fromMessages([
-    ("system", "You are a helpful assistant."),
+    ["system", "You are a helpful assistant."],
     new MessagesPlaceholder("chat_history"),
-    ("human", "{input}"),
+    ["human", "{input}"],
     new MessagesPlaceholder("agent_scratchpad"),
   ]);
 

@@ -1,5 +1,5 @@
-import { env } from "config/environment";
 import axios from "axios"
+import { env } from "../../config/environment";
 
 const sendMessage = async (senderId: string, message: string) => {
   // Định nghĩa thông tin cho yêu cầu
