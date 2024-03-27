@@ -23,7 +23,7 @@ export const getChatHistoryBasic = async (sessionId: string) => {
 export const getChatHistoryConvertString = async (sessionId: string) => {
   try {
     const basicChatHistory = await getChatHistoryBasic(sessionId);
-    return getConvertChatHistory(basicChatHistory.splice(-20))
+    return getConvertChatHistory(basicChatHistory.splice(-5))
   } catch (error: any) {
     throw new Error(error)
   }

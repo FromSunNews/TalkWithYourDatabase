@@ -9,6 +9,9 @@ import { ChatbotValidation } from '../../validations/chatbot.validation'
 const router = express.Router()
 
 router.route('/get_answer')
-  .post(ChatbotValidation.getAnswer, ChatbotController.getAnswer)
+  .post(ChatbotController.getAnswerPOST)
+
+router.route('/get_answer')
+  .get(ChatbotController.checkConnectionMessenger)
 
 export const chatbotRoutes = router

@@ -1,17 +1,18 @@
 /* eslint-disable no-unreachable */
-import { ConfigOptions } from "common/interfaces/ConfigOptions.interface";
-import { getAnswerResearchAssistant } from "providers/research";
+import { getAnswerChatBot } from "providers/chatbot";
 
-const getAnswer = async (datas: ConfigOptions) => {
-  console.log("🚀 ~ getAnswer ~ datas:", datas)
+const getAnswer = async (data: { sessionId: string, question: string, user_name: string }): Promise<string> => {
   try {
-    const result = await getAnswerResearchAssistant(datas);
+    const { sessionId, question, user_name } = data;
+    // const result = await getAnswerChatBot(sessionId, question, user_name);
+    const result = "Đây là trả lời từ Nodejs"
     return result;
   } catch (error) {
     if (error instanceof Error) {
-      throw new Error(JSON.stringify(error));
+      console.log("🚀 ~ getAnswer ~ error:", error)
     }
   }
+  return "";
 }
 
 export const ChatbotService = {

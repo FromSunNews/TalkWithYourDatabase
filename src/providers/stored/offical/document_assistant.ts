@@ -5,11 +5,11 @@ import readline from "readline";
 import { UpstashRedisChatMessageHistory } from 'langchain/stores/message/upstash_redis';
 import { env } from 'config/environment';
 import { AIMessage, HumanMessage } from 'langchain/schema';
-import { getRetrieverSupabase } from './utils/retriever';
-import { combineDocuments } from './utils/combine_documents';
-import { getChatHistoryConvertString } from './utils/upstash_chat_history';
-import { getModelLlm } from './utils/get_llm';
-import { promptRole } from './utils/prompt';
+import { getRetrieverSupabase } from '../../chatbot/utils/retriever';
+import { combineDocuments } from '../../chatbot/utils/combine_documents';
+import { getChatHistoryConvertString } from '../../chatbot/utils/upstash_chat_history';
+import { getModelLlm } from '../../chatbot/utils/get_llm';
+import { promptRole } from '../../chatbot/utils/prompt';
 
 export const getAnswerDocumentAssistant = async (sessionId: string, question: string, user_name: string): Promise<string> => {
 
@@ -22,7 +22,8 @@ export const getAnswerDocumentAssistant = async (sessionId: string, question: st
   const answerTemplate = `
   ${promptRole} 
   Based on the context provided and the conversation history. Try to find the answer in the context. Answer the question in Vietnamese by your own words based on the information found. 
-  If the answer is not given in the context, find the answer in the conversation history if possible. 
+  If the answer is not given in the context, find the answer in the conversation history if possible.
+  Please answer in VIETNAMESE and RETURN ONLY VIETNAMESE ANSWER ADD NO MORE SENTENCES (Priority)!
   Don't try to make up an answer. Always speak as if you were chatting to a friend. Please mention the user's name when chatting. The user's name is {user_name}
   If you really don't know the answer, return a word "NO_ANSWER" and do not respond with more than one word.
 

@@ -1,9 +1,9 @@
 import { TavilySearchResults } from "@langchain/community/tools/tavily_search";
 import { AgentExecutor, createOpenAIFunctionsAgent } from "langchain/agents";
 import { ChatPromptTemplate, HumanMessagePromptTemplate, MessagesPlaceholder } from "langchain/prompts";
-import { getModelLlm } from "./utils/get_llm";
-import { getChatHistoryBasic } from "./utils/upstash_chat_history";
-import { promptRole } from "./utils/prompt";
+import { getModelLlm } from "../../chatbot/utils/get_llm";
+import { getChatHistoryBasic } from "../../chatbot/utils/upstash_chat_history";
+import { promptRole } from "../../chatbot/utils/prompt";
 import { WikipediaQueryRun } from "@langchain/community/tools/wikipedia_query_run";
 
 export const getAnswerSearchAssistant = async (sessionId: string, question: string, user_name: string) => {
