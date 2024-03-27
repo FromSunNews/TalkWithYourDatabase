@@ -4,14 +4,14 @@ import express from 'express'
 import { HttpStatusCode } from '../../utilities/constants'
 
 // Import from routes
-import { blockchainRoutes } from './blockchain.route'
+import { chatbotRoutes } from './chatbot.route'
 
 const router = express.Router()
 
 router.get('/status', (req, res) => res.status(HttpStatusCode.OK).json({ status: 'OK!' }))
 
-// blockchain
-router.use('/blockchain', blockchainRoutes)
+// chatbot
+router.use('/chatbot', chatbotRoutes)
 
 
 export const apiV1 = router

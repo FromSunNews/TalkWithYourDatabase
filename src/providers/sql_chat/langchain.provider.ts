@@ -10,23 +10,21 @@ import {
   RunnableSequence,
 } from "@langchain/core/runnables";
 
-import { env } from "process";
-
-export const getDb = async () => {
+export const getDB = async () => {
 
   const datasource = new DataSource({
     type: "mysql",
-    host: env.DB_HOST,
-    username: env.DB_USER,
-    password: env.DB_PASSWORD,
-    database: env.DB_NAME
+    host: 3306,
+    username: "root",
+    password: "",
+    database: "softseek"
   });
 
   const db = await SqlDatabase.fromDataSourceParams({
     appDataSource: datasource,
   });
-  
-  const llm = new ChatOpenAI({ modelName: "gpt-3.5-turbo-0125", temperature: 0});
+
+  const llm = new ChatOpenAI({ modelName: "gpt-3.5-turbo-0125", temperature: 0 });
 
   const executeQuery = new QuerySqlTool(db);
 
@@ -38,7 +36,7 @@ export const getDb = async () => {
 
   const answerPrompt =
     PromptTemplate.fromTemplate(`Đưa ra câu hỏi của người dùng sau, truy vấn SQL tương ứng và kết quả SQL, hãy trả lời câu hỏi của người dùng.
-
+    
     Câu hỏi: {question}
     Câu truy vấn: {query}
     Kết quả truy vấn: {result}
@@ -52,8 +50,8 @@ export const getDb = async () => {
     }),
     answerChain,
   ]);
-  
-  const result = await chain.invoke({ question: "Liệt kê 5 nhân viên có doanh thu cao nhất và liệt kê số tiền của họ?" });
+
+  const result = await chain.invoke({ question: "Liệt kê nhân viên có doanh thu cao nhất tháng 3" });
   console.log(result);
   /**
   [{"COUNT(*)":8}]
